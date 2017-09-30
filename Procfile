@@ -1,0 +1,1 @@
+﻿worker: java ./src/main/java/iyn/IYNbot/IYNbot/App.java
