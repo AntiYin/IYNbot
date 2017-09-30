@@ -1,0 +1,8 @@
+iyn\IYNbot\data\RoleData.class
+iyn\IYNbot\commands\PingCommand.class
+iyn\IYNbot\commands\SayCommand.class
+iyn\IYNbot\IYNbot\App.class
+iyn\IYNbot\IYNbot\MessageListener.class
+iyn\IYNbot\commands\Command.class
+iyn\IYNbot\commands\HelloCommand.class
+iyn\IYNbot\commands\RoleCommand.class
