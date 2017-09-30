@@ -1,1 +1,1 @@
-﻿worker: java ./src/main/java/iyn/IYNbot/IYNbot/App.java
+worker: java ./target/IYNbot-0.0.1-SNAPSHOT.jar
