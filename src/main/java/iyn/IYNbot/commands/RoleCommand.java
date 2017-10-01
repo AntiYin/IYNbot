@@ -38,7 +38,7 @@ public class RoleCommand extends Command {
 			return "You must be a Friendo on this server to make your own role!";
 		}
 		
-		if (args.length <= 1) {
+		if (args.length == 0) {
 			return getUsage();
 		}
 		
@@ -71,8 +71,6 @@ public class RoleCommand extends Command {
 				gc.addSingleRoleToMember(e.getGuild().getMember(user), r).queue();
 				
 				data.roleID = r.getId();
-				data.roleName = args[1];
-				data.color = clr;
 				
 				data.save();
 				
@@ -91,7 +89,6 @@ public class RoleCommand extends Command {
 				
 				if (args[2].equals("name")) {
 					rm.setName(args[2]).queue();
-					data.roleName = args[2];
 					
 					return "Name set successfully!";
 				} else if (args[2].equals("color")) {
@@ -107,8 +104,6 @@ public class RoleCommand extends Command {
 			            Integer.valueOf( args[2].substring( 4, 6 ), 16 ) );
 					
 					rm.setColor(c).queue();
-					data.color = c;
-					data.save();
 					
 					return "Color set successfully!";
 				} else {

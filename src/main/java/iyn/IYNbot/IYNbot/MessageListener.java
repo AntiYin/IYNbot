@@ -18,7 +18,7 @@ public class MessageListener extends net.dv8tion.jda.core.hooks.ListenerAdapter 
 						.sendMessage("```Sorry, but the bot is being updated. Please try again later!```").queue();
 				return;
 			}
-			String[] words = message.getContent().split(" ");
+			String[] words = message.getRawContent().split(" ");
 			String commandStr;
 			String[] args;
 			if (words.length == 1) {

@@ -20,8 +20,6 @@ public class RoleData {
 	/**Discord User ID*/
 	public final String ID; 
 	public String roleID = null;
-	public String roleName = null;
-	public Color color = new Color(0, 0, 0);
 	
 	public RoleData(String id) {
 		ID = id;
