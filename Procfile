@@ -1,1 +1,1 @@
-worker: java -cp ./target/classes/:target/dependency/* iyn.IYNbot.IYNbot.Main
+worker: java -cp .;./target/classes/:target/dependency/* iyn.IYNbot.IYNbot.Main
