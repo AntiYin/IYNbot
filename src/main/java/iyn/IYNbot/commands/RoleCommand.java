@@ -38,7 +38,7 @@ public class RoleCommand extends Command {
 			return "You must be a Friendo on this server to make your own role!";
 		}
 		
-		if (args.length == 1) {
+		if (args.length <= 1) {
 			return getUsage();
 		}
 		
