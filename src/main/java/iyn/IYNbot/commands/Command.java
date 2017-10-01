@@ -9,6 +9,7 @@ import net.dv8tion.jda.core.events.message.MessageReceivedEvent;
 public abstract class Command {
 
 	public static void RegisterCommands() {
+		commands.add(new HelpCommand());
 		commands.add(new HelloCommand());
 		commands.add(new PingCommand());
 		commands.add(new RoleCommand());

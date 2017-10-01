@@ -9,6 +9,12 @@ import net.dv8tion.jda.core.events.message.MessageReceivedEvent;
 public class HelloCommand extends Command{
 
 	@Override
+	public String getUsage() {
+		return "```> hello\n"
+				+ "    Hi!```";
+	}
+	
+	@Override
 	public String getCommand() {
 		return "hello";
 	}

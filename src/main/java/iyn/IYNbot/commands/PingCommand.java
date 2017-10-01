@@ -9,6 +9,12 @@ import net.dv8tion.jda.core.events.message.MessageReceivedEvent;
 public class PingCommand extends Command {
 
 	@Override
+	public String getUsage() {
+		return "```> ping\n"
+				+ "    Pings Niegil. He's a cuck.```";
+	}
+	
+	@Override
 	public String getCommand() {
 		return "ping";
 	}
