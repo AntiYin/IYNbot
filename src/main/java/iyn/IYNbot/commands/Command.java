@@ -11,6 +11,7 @@ public abstract class Command {
 	public static void RegisterCommands() {
 		commands.add(new HelpCommand());
 		commands.add(new HelloCommand());
+		commands.add(new SayCommand());
 		commands.add(new PingCommand());
 		commands.add(new RoleCommand());
 	}
