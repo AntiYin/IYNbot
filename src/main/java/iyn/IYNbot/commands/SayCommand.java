@@ -9,7 +9,7 @@ public class SayCommand extends Command {
 	
 	@Override
 	public String getUsage() {
-		return "```> say [something]"
+		return "```> say [something]\n"
 				+ "    Make me say something!```";
 	}
 	

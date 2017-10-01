@@ -28,7 +28,7 @@ public class MessageListener extends net.dv8tion.jda.core.hooks.ListenerAdapter 
 				args = new String[] {};
 			} else {
 				commandStr = words[1];
-				args = new String[words.length - 1];
+				args = new String[words.length - 2];
 				System.arraycopy(words, 2, args, 0, args.length);
 			}
 			for (Command command : Command.commands) {
@@ -37,7 +37,7 @@ public class MessageListener extends net.dv8tion.jda.core.hooks.ListenerAdapter 
 					try {
 						reply = command.performCommand(event, message.getAuthor(), message.getMentionedUsers(), args);
 					} catch (Exception e) {
-						reply = "An Error Occurred When Performing This Command!";
+						reply = "An error occurred when performing this command!";
 						e.printStackTrace();
 					}
 					if ((reply != null) && (!reply.equals(""))) {
