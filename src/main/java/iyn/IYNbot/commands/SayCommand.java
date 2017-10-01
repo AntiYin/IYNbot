@@ -21,7 +21,7 @@ public class SayCommand extends Command {
 	@Override
 	public String performCommand(MessageReceivedEvent e, User user, List<User> mentions, String[] args) {
 		e.getMessage().delete().queue();
-		return String.join("", args);
+		return String.join(" ", args);
 	}
 
 }

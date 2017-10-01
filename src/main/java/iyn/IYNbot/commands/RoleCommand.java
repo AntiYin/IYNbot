@@ -46,9 +46,9 @@ public class RoleCommand extends Command {
 		
 		RoleData data = RoleData.getData(user.getId());
 		
-		if (args[1].equals("make")) {
+		if (args[0].equals("make")) {
 			if (data.roleID == null) {
-				if (args.length < 4) {
+				if (args.length < 3) {
 					return getUsage();
 				}
 				String colorString = args[3].toUpperCase();
@@ -66,12 +66,12 @@ public class RoleCommand extends Command {
 			            Integer.valueOf( colorString.substring( 2, 4 ), 16 ),
 			            Integer.valueOf( colorString.substring( 4, 6 ), 16 ) );
 				
-				Role r = gc.createRole().setName(args[2]).setColor(clr).complete();
+				Role r = gc.createRole().setName(args[1]).setColor(clr).complete();
 				
 				gc.addSingleRoleToMember(e.getGuild().getMember(user), r).queue();
 				
 				data.roleID = r.getId();
-				data.roleName = args[2];
+				data.roleName = args[1];
 				data.color = clr;
 				
 				data.save();
@@ -83,28 +83,28 @@ public class RoleCommand extends Command {
 			}
 		} else if (args[1].equals("edit")) {
 			if (data.roleID != null) {
-				if (args.length < 4) {
+				if (args.length < 3) {
 					return getUsage();
 				}
 				
 				RoleManager rm = new RoleManager(e.getGuild().getRoleById(data.roleID));
 				
 				if (args[2].equals("name")) {
-					rm.setName(args[3]).queue();
-					data.roleName = args[3];
+					rm.setName(args[2]).queue();
+					data.roleName = args[2];
 					
 					return "Name set successfully!";
 				} else if (args[2].equals("color")) {
-					for (int i = 0; i < args[3].length(); i++){
+					for (int i = 0; i < args[2].length(); i++){
 					    char c = args[3].toUpperCase().charAt(i);
 					    if (!"1234567890ABCDEF".contains(Character.toString(c))) {
 					    	return getUsage();
 					    }
 					}
 					Color c = new Color(
-			            Integer.valueOf( args[3].substring( 0, 2 ), 16 ),
-			            Integer.valueOf( args[3].substring( 2, 4 ), 16 ),
-			            Integer.valueOf( args[3].substring( 4, 6 ), 16 ) );
+			            Integer.valueOf( args[2].substring( 0, 2 ), 16 ),
+			            Integer.valueOf( args[2].substring( 2, 4 ), 16 ),
+			            Integer.valueOf( args[2].substring( 4, 6 ), 16 ) );
 					
 					rm.setColor(c).queue();
 					data.color = c;

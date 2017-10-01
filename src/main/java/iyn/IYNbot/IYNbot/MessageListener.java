@@ -19,9 +19,18 @@ public class MessageListener extends net.dv8tion.jda.core.hooks.ListenerAdapter 
 				return;
 			}
 			String[] words = message.getContent().split(" ");
-			String commandStr = words[1];
-			String[] args = new String[words.length - 1];
-			System.arraycopy(words, 1, args, 0, args.length);
+			String commandStr;
+			String[] args;
+			if (words.length == 1) {
+				return;
+			} else if (words.length == 2) {
+				commandStr = words[1];
+				args = new String[] {};
+			} else {
+				commandStr = words[1];
+				args = new String[words.length - 1];
+				System.arraycopy(words, 2, args, 0, args.length);
+			}
 			for (Command command : Command.commands) {
 				if (command.isAcceptable(commandStr)) {
 					String reply = "";
