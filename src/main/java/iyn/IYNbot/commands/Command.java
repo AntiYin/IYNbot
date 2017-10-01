@@ -14,6 +14,7 @@ public abstract class Command {
 		commands.add(new SayCommand());
 		commands.add(new PingCommand());
 		commands.add(new RoleCommand());
+		commands.add(new FeedbackCommand());
 	}
 
 	public abstract String getCommand();
