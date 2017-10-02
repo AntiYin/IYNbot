@@ -85,7 +85,7 @@ public class RoleCommand extends Command {
 					return getUsage();
 				}
 				
-				RoleManager rm = new RoleManager(e.getGuild().getRoleById(data.roles.get(e.getGuild())));
+				RoleManager rm = new RoleManager(e.getGuild().getRoleById(data.roles.get(e.getGuild().getId())));
 				
 				if (args[1].equals("name")) {
 					rm.setName(args[2]).queue();
