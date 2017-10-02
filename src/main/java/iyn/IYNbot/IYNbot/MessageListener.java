@@ -5,7 +5,7 @@ import net.dv8tion.jda.core.events.message.MessageReceivedEvent;
 import iyn.IYNbot.commands.Command;
 
 public class MessageListener extends net.dv8tion.jda.core.hooks.ListenerAdapter {
-	private static boolean MAINTAINANCE_MODE = false;
+	private static boolean MAINTAINANCE_MODE = true;
 
 	public MessageListener() {
 	}
@@ -13,7 +13,7 @@ public class MessageListener extends net.dv8tion.jda.core.hooks.ListenerAdapter 
 	public void onMessageReceived(MessageReceivedEvent event) {
 		Message message = event.getMessage();
 		if (message.getContent().startsWith("> ")) {
-			if (MAINTAINANCE_MODE) {
+			if (MAINTAINANCE_MODE && !event.getAuthor().getId().equals("135607086330544128")) {
 				message.getTextChannel()
 						.sendMessage("```Sorry, but the bot is being updated. Please try again later!```").queue();
 				return;

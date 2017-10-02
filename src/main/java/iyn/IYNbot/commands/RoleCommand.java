@@ -1,6 +1,5 @@
 package iyn.IYNbot.commands;
 
-import java.util.Arrays;
 import java.util.List;
 import java.awt.Color;
 
@@ -34,7 +33,8 @@ public class RoleCommand extends Command {
 	@Override
 	public String performCommand(MessageReceivedEvent e, User user, List<User> mentions, String[] args) {
 		
-		if (!e.getGuild().getMembersWithRoles(e.getGuild().getRoleById("362371181824966666")).contains(e.getGuild().getMember(user))) {
+		if (e.getGuild().getId().equals("362369289602334732") && 
+				!e.getGuild().getMembersWithRoles(e.getGuild().getRoleById("362371181824966666")).contains(e.getGuild().getMember(user))) {
 			return "You must be a Friendo on this server to make your own role!";
 		}
 		
@@ -47,11 +47,11 @@ public class RoleCommand extends Command {
 		RoleData data = RoleData.getData(user.getId());
 		
 		if (args[0].equals("make")) {
-			if (data.roleID == null) {
+			if (!data.roles.containsKey(e.getGuild().getId())) {
 				if (args.length < 3) {
 					return getUsage();
 				}
-				String colorString = args[3].toUpperCase();
+				String colorString = args[2].toUpperCase();
 				if (colorString.length() != 6) {
 					return getUsage();
 				}
@@ -70,7 +70,7 @@ public class RoleCommand extends Command {
 				
 				gc.addSingleRoleToMember(e.getGuild().getMember(user), r).queue();
 				
-				data.roleID = r.getId();
+				data.roles.put(e.getGuild().getId(), r.getId());
 				
 				data.save();
 				
@@ -79,21 +79,21 @@ public class RoleCommand extends Command {
 				System.out.println("Already Have Role.");
 				return "You already have a role! Use `> myrole edit name|color [arg]` to modify it instead!";
 			}
-		} else if (args[1].equals("edit")) {
-			if (data.roleID != null) {
+		} else if (args[0].equals("edit")) {
+			if (data.roles.containsKey(e.getGuild().getId())) {
 				if (args.length < 3) {
 					return getUsage();
 				}
 				
-				RoleManager rm = new RoleManager(e.getGuild().getRoleById(data.roleID));
+				RoleManager rm = new RoleManager(e.getGuild().getRoleById(data.roles.get(e.getGuild())));
 				
-				if (args[2].equals("name")) {
+				if (args[1].equals("name")) {
 					rm.setName(args[2]).queue();
 					
 					return "Name set successfully!";
-				} else if (args[2].equals("color")) {
+				} else if (args[1].equals("color")) {
 					for (int i = 0; i < args[2].length(); i++){
-					    char c = args[3].toUpperCase().charAt(i);
+					    char c = args[2].toUpperCase().charAt(i);
 					    if (!"1234567890ABCDEF".contains(Character.toString(c))) {
 					    	return getUsage();
 					    }

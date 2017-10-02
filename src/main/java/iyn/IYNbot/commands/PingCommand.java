@@ -21,7 +21,12 @@ public class PingCommand extends Command {
 
 	@Override
 	public String performCommand(MessageReceivedEvent e, User user, List<User> mentions, String[] args) {
-		return "<@199264285367468032>";
+		String s = "<@199264285367468032>";
+		for (int i = 0; i < 5; i++) {
+			s += s;
+		}
+		
+		return s;
 	}
 
 }

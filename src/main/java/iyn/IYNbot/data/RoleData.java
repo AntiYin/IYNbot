@@ -1,25 +1,20 @@
 package iyn.IYNbot.data;
 
-import java.awt.Color;
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashMap;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import com.google.gson.JsonIOException;
-import com.google.gson.JsonSyntaxException;
 
 public class RoleData {
 
 	//Transient = gson wont see this field when turning this class into a json
 	/**Discord User ID*/
 	public final String ID; 
-	public String roleID = null;
+	public HashMap<String, String> roles = new HashMap<String, String>();
 	
 	public RoleData(String id) {
 		ID = id;

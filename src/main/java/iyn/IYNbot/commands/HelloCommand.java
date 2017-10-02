@@ -21,6 +21,7 @@ public class HelloCommand extends Command{
 
 	@Override
 	public String performCommand(MessageReceivedEvent e, User user, List<User> mentions, String[] args) {
+		System.out.println(e.getGuild().getId());
 		return "Hi there!";
 	}
 	
