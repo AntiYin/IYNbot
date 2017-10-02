@@ -5,7 +5,7 @@ import net.dv8tion.jda.core.events.message.MessageReceivedEvent;
 import iyn.IYNbot.commands.Command;
 
 public class MessageListener extends net.dv8tion.jda.core.hooks.ListenerAdapter {
-	private static boolean MAINTAINANCE_MODE = true;
+	private static boolean MAINTAINANCE_MODE = false;
 
 	public MessageListener() {
 	}
